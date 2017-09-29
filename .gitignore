@@ -1,0 +1,8 @@
+# data set
+/dataset
+
+# pycharm IDE
+.idea/
+
+# test file
+test.py
