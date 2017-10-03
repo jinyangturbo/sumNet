@@ -1,6 +1,12 @@
 # data set
 /dataset
 
+# checkpoint
+/checkpoint
+
+# dataset
+/data
+
 # pycharm IDE
 .idea/
 
