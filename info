@@ -1,0 +1,15 @@
+ssh shaofeng@172.26.187.243
+
+rsync -qaz ~/Desktop/sumNet shaofeng@172.26.187.243:~/
+
+rsync -qaz shaofeng@172.26.187.243:~/sumNet ~/Desktop
+
+# cifar 10
+python cifar.py --model=resnet_cifar10      &
+python cifar.py --model=densenet_cifar10    &
+python cifar.py --model=vgg_cifar10 --distribute=0  &
+
+# drop_plane cifar 10
+python cifar.py --model=resnet_cifar10_drop &
+python cifar.py --model=densenet_cifar10_drop    &
+python cifar.py --model=vgg_cifar10_drop --distribute=0  &

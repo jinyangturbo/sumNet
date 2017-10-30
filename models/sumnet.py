@@ -39,7 +39,7 @@ class BottleneckBlock(nn.Module):
     def forward(self, x):
         input = x
         if self.layer_idx > 1:
-            input = torch.cat([x[:, :self.in_planes, :, :], x[:, -self.growth_rate:, :, :]], dim=1)
+            input = torch.cat([x[:, :self.in_planes], x[:, -self.growth_rate:]], dim=1)
         out = self.conv1(F.relu(self.bn1(input)))
         out = self.conv2(F.relu(self.bn2(out)))
         out = torch.cat([x, out], 1)
@@ -102,6 +102,9 @@ class SumNet(nn.Module):
         out = out.view(out.size(0), -1)
         out = self.linear(out)
         return out
+
+def SumNet121():
+    return SumNet(BottleneckBlock, [6,12,24,16], growth_rate=32)
 
 def test_sumnet():
     net = SumNet(BottleneckBlock, [3,  ], growth_rate=3)

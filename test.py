@@ -1,25 +1,8 @@
-from __future__ import print_function
+from utilities import *
 
-import torch
-import torch.nn as nn
-import torch.optim as optim
-import torch.nn.functional as F
-import torch.backends.cudnn as cudnn
-
-import torchvision
-import torchvision.transforms as transforms
-
-import os
-import argparse
-
-from models import *
-from torch.autograd import Variable
-
-from data_loader import *
+# log = logger('test', need_time=True, need_stdout=False)
+# log.info('test')
 
 
-a = torch.FloatTensor(2, 3, 4).fill_(1)
-b = torch.FloatTensor(2, 5,4 )
-print(a, b)
-
-print(torch.cat([b[:, :2, :], b[:, -1:, :]], dim=1))
+print('%d %d Loss: %.3f | Acc: %.3f%% (%d/%d)'
+                % (30, 324, 3.4545, 4.3445, 34653, 5345))
